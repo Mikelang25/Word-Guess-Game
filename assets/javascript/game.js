@@ -1,6 +1,6 @@
 
 //creates the array of word choices for the computer
-var computerChoices = ["flower","puzzle","agenda"]
+var computerChoices = ["hitter","helmet","lineup","batter","stolen","strike","triple","umpire","piazza"]
 //creates an array container for the user's guesses 
 var userGuessAll = []
 
@@ -8,14 +8,10 @@ var frmwin = document.getElementById("txt-wins");
 var frmloss = document.getElementById("txt-loss");
 var guessesRemaining = document.getElementById("txt-gs-rem");
 var guessesAll = document.getElementById("txt-gs-all");
-var currentword = document.getElementById("txt-word")
-var Buildword = ""
-var wins = 0
-
-//chooses a random selection of the computerChoices array created earlier
-
-var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
+var currentword = document.getElementById("txt-word");
+var Buildword = "";
+var wins = 0;
+var losses = 0;
 
 
 
@@ -71,13 +67,14 @@ document.onkeyup = function(event) {
             }
             //resets values and determines if there was a win when the guesses are gone
             else {
-
+                losses = losses + 1 
                 userGuessAll = [];
                 guessesAll.innerText = "";
                 guessesRemaining.innerText = 13;
+                currentword.innerText = "_  _  _  _  _  _";
             }
         }   
-        
+    frmloss.innerText = losses
     frmwin.innerText = wins
 
 }

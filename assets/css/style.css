@@ -1,11 +1,26 @@
 
-
-
+body{
+    background-image: url('../images/dark-honeycomb.png');
+}
+.row{
+    color:black;
+}
 .main-left, .main-right{
     height:700px;
-    border:2pt dotted black;
-    margin-top:100px;
-    
+    border:2pt solid grey;
+    margin-top:20px;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
+.main-right{
+    background-image: url('../images/dust_scratches.png');
+}
+
+.title-head{
+    font-family:"Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    background-image: url('../images/dust_scratches.png');
+    border:2pt solid grey;
+    font-size: 50pt;
+    text-shadow: -2px 0 grey, 0 2px grey, 2px 0 grey, 0 -2px grey;
 }
 #txt-word{
     font-size: 25pt;
