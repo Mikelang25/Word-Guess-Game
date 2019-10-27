@@ -8,11 +8,15 @@ body{
 .main-left, .main-right{
     height:700px;
     border:2pt solid grey;
-    margin-top:20px;
+    margin-top:30px;
     font-family: 'Georgia', Times, Times New Roman, serif;
 }
 .main-right{
     background-image: url('../images/dust_scratches.png');
+}
+
+.main-left{
+    background-color: lightgrey;
 }
 
 .title-head{
@@ -24,4 +28,8 @@ body{
 }
 #txt-word{
     font-size: 25pt;
+}
+
+.lbl-intro, .lbl-win, .lbl-loss, .lbl-word, .lbl-guess-tot, .lbl-guess, .lbl-status{
+    font-weight: bold;
 }
