@@ -1,6 +1,6 @@
 
 //creates the array of word choices for the computer
-var computerChoices = ["hitter","helmet","lineup","batter","stolen","strike","triple","umpire","piazza"]
+var computerChoices = ["hitter","helmet","lineup","stolen","strike","triple","umpire","piazza"]
 //creates an array container for the user's guesses 
 var userGuessAll = []
 
@@ -9,17 +9,58 @@ var frmloss = document.getElementById("txt-loss");
 var guessesRemaining = document.getElementById("txt-gs-rem");
 var guessesAll = document.getElementById("txt-gs-all");
 var currentword = document.getElementById("txt-word");
+var gameStatus = document.getElementById("txt-status"); 
+var hint = document.getElementById("txt-hint");
+var ghosthint = document.getElementById("txt-guess-hint");
 var Buildword = "";
 var wins = 0;
 var losses = 0;
 
+function getHint(){
+    
+    if(ghosthint =="hitter"){
+        hint.innerText = "That guy is hitting bombs in batting practice, he looks like a good ______ ."
+    }
+    else if (ghosthint == "helmet"){
+        hint.innerText = "I have to bat, have you seen my  _______ ."
+    }
+    else if (ghosthint == "lineup"){
+        hint.innerText = "I hope coach puts me in the ________ ."
+    }
+    else if (ghosthint == "stolen"){
+        hint.innerText = "The runner has  _______ second base."
+    }
+    else if (ghosthint == "strike"){
+        hint.innerText = "Get this pitched out of here, he can't throw a  _____ ."
+    }
+    else if (ghosthint == "triple"){
+        hint.innerText = "If the batter hit a ball and ended up on third, he hit a _____ ."
+    }
+    else if (ghosthint == "umpire"){
+        hint.innerText = "This guys calls balls and strikes"
+    }
+    else if (ghosthint == "piazza"){
+        hint.innerText = "Greatest NY Mets catcher of all time"
+    }
+    else{
+        hint.innerText = "Press any key to play the game!"
+    }
 
+
+
+}
+
+
+//document.getElementById("btn-hint").addEventListener("click",getHint);
 
 document.onkeyup = function(event) {
     
     //if this is the first guess of the game then a computer guess is selected
     if(parseInt(guessesRemaining.innerText) === 13){
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        ghosthint.innerText = computerGuess
+        console.log(ghosthint)
+        gameStatus.innerText = "";
     }
 
     console.log("Computer Guesses: " + computerGuess);
@@ -57,6 +98,7 @@ document.onkeyup = function(event) {
 
                 //checks to see if the user guesses equal the value of the computer guess 
                 if(Buildword == computerGuess){
+                    gameStatus.innerText = "You win!"
                     wins = wins + 1;
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
@@ -68,11 +110,13 @@ document.onkeyup = function(event) {
             //resets values and determines if there was a win when the guesses are gone
             else {
                 if(Buildword == computerGuess){
+                    gameStatus.innerText = "You win!"
                     wins = wins + 1;
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
                     userGuessAll = [];
                 }
+                gameStatus.innerText = "You lose! The correct word was: " + computerGuess
                 losses = losses + 1 
                 userGuessAll = [];
                 guessesAll.innerText = "";

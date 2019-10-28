@@ -6,7 +6,7 @@ body{
     color:black;
 }
 .main-left, .main-right{
-    height:700px;
+    height:750px;
     border:2pt solid grey;
     margin-top:30px;
     font-family: 'Georgia', Times, Times New Roman, serif;
@@ -17,6 +17,7 @@ body{
 
 .main-left{
     background-color: lightgrey;
+    padding:10px;
 }
 
 .title-head{
@@ -26,10 +27,31 @@ body{
     font-size: 50pt;
     text-shadow: -2px 0 grey, 0 2px grey, 2px 0 grey, 0 -2px grey;
 }
+
+.lbl-intro, .lbl-win, .lbl-loss, .lbl-word, .lbl-guess-tot, .lbl-guess, .lbl-status, .lbl-hint{
+    font-weight: bold;
+}
+
+.lbl-intro {
+    text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+    font-size: 15pt;
+}
+
+.win, .loss, .word, .total-guess, .guesses {
+    font-size: 15pt;
+    
+}
+
+.lbl-status {
+        font-weight: bold;
+        font-size: 18pt;
+        text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+}
+
 #txt-word{
     font-size: 25pt;
 }
 
-.lbl-intro, .lbl-win, .lbl-loss, .lbl-word, .lbl-guess-tot, .lbl-guess, .lbl-status{
-    font-weight: bold;
+#txt-guess-hint{
+    
 }
