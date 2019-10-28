@@ -67,6 +67,12 @@ document.onkeyup = function(event) {
             }
             //resets values and determines if there was a win when the guesses are gone
             else {
+                if(Buildword == computerGuess){
+                    wins = wins + 1;
+                    guessesRemaining.innerText = 13;
+                    currentword.innerText = "_  _  _  _  _  _";
+                    userGuessAll = [];
+                }
                 losses = losses + 1 
                 userGuessAll = [];
                 guessesAll.innerText = "";
