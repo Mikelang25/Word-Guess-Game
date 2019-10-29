@@ -16,39 +16,6 @@ var Buildword = "";
 var wins = 0;
 var losses = 0;
 
-function getHint(){
-    
-    if(ghosthint =="hitter"){
-        hint.innerText = "That guy is hitting bombs in batting practice, he looks like a good ______ ."
-    }
-    else if (ghosthint == "helmet"){
-        hint.innerText = "I have to bat, have you seen my  _______ ."
-    }
-    else if (ghosthint == "lineup"){
-        hint.innerText = "I hope coach puts me in the ________ ."
-    }
-    else if (ghosthint == "stolen"){
-        hint.innerText = "The runner has  _______ second base."
-    }
-    else if (ghosthint == "strike"){
-        hint.innerText = "Get this pitched out of here, he can't throw a  _____ ."
-    }
-    else if (ghosthint == "triple"){
-        hint.innerText = "If the batter hit a ball and ended up on third, he hit a _____ ."
-    }
-    else if (ghosthint == "umpire"){
-        hint.innerText = "This guys calls balls and strikes"
-    }
-    else if (ghosthint == "piazza"){
-        hint.innerText = "Greatest NY Mets catcher of all time"
-    }
-    else{
-        hint.innerText = "Press any key to play the game!"
-    }
-
-
-
-}
 
 
 //document.getElementById("btn-hint").addEventListener("click",getHint);
@@ -126,5 +93,39 @@ document.onkeyup = function(event) {
         }   
     frmloss.innerText = losses
     frmwin.innerText = wins
+
+}
+
+function getHint(){
+        console.log("Ghost hint: " + ghosthint)
+    if(ghosthint.textContent =="hitter"){
+        hint.innerText = "That guy is hitting bombs in batting practice, he looks like a good ______ ."
+    }
+    else if (ghosthint.textContent == "helmet"){
+        hint.innerText = "I have to bat, have you seen my  _______ ."
+    }
+    else if (ghosthint.textContent == "lineup"){
+        hint.innerText = "I hope coach puts me in the ________ ."
+    }
+    else if (ghosthint.textContent == "stolen"){
+        hint.innerText = "The runner has  _______ second base."
+    }
+    else if (ghosthint.textContent == "strike"){
+        hint.innerText = "Get this pitched out of here, he can't throw a  _____ ."
+    }
+    else if (ghosthint.textContent == "triple"){
+        hint.innerText = "If the batter hit a ball and ended up on third, he hit a _____ ."
+    }
+    else if (ghosthint.textContent == "umpire"){
+        hint.innerText = "This guys calls balls and strikes"
+    }
+    else if (ghosthint.textContent == "piazza"){
+        hint.innerText = "Greatest NY Mets catcher of all time"
+    }
+    else{
+        hint.innerText = "Press any key to play the game!"
+    }
+
+
 
 }

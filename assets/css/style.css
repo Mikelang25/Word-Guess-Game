@@ -53,5 +53,5 @@ body{
 }
 
 #txt-guess-hint{
-    
+    visibility: hidden;
 }
