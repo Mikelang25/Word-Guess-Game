@@ -65,7 +65,7 @@ document.onkeyup = function(event) {
 
                 //checks to see if the user guesses equal the value of the computer guess 
                 if(Buildword == computerGuess){
-                    gameStatus.innerText = "You win!"
+                    gameStatus.innerText = "You win! The correct word was: " + computerGuess
                     wins = wins + 1;
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
@@ -77,7 +77,7 @@ document.onkeyup = function(event) {
             //resets values and determines if there was a win when the guesses are gone
             else {
                 if(Buildword == computerGuess){
-                    gameStatus.innerText = "You win!"
+                    gameStatus.innerText = "You win! The correct word was: " + computerGuess
                     wins = wins + 1;
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
@@ -96,36 +96,53 @@ document.onkeyup = function(event) {
 
 }
 
-function getHint(){
-        console.log("Ghost hint: " + ghosthint)
+$("#click-hint").on("click",function(){
+
+    var hint = $("<p>");
+    var hintText = $("<p>");
+
+    hint.text("Hint:");
+    $("#hint-opt").append(hint);
+    hint.attr("class","lbl-hint")
+
     if(ghosthint.textContent =="hitter"){
-        hint.innerText = "That guy is hitting bombs in batting practice, he looks like a good ______ ."
+        hintText.txt("That guy is hitting bombs in batting practice, he looks like a good ______ .")
+        $("#hint-opt").append(hintText);
     }
     else if (ghosthint.textContent == "helmet"){
-        hint.innerText = "I have to bat, have you seen my  _______ ."
+        hintText.text("I have to bat, have you seen my  _______ .")
+        $("#hint-opt").append(hintText);
     }
     else if (ghosthint.textContent == "lineup"){
-        hint.innerText = "I hope coach puts me in the ________ ."
+        hintText.text("I hope coach puts me in the ________ .")
+        $("#hint-opt").append(hintText);
     }
     else if (ghosthint.textContent == "stolen"){
-        hint.innerText = "The runner has  _______ second base."
+        hintText.text("The runner has  _______ second base.")
+        $("#hint-opt").append(hintText);
     }
     else if (ghosthint.textContent == "strike"){
-        hint.innerText = "Get this pitched out of here, he can't throw a  _____ ."
+        hintText.text("Get this pitched out of here, he can't throw a  _____ .")
+        $("#hint-opt").append(hintText);
     }
     else if (ghosthint.textContent == "triple"){
-        hint.innerText = "If the batter hit a ball and ended up on third, he hit a _____ ."
+        hintText.text("If the batter hit a ball and ended up on third, he hit a _____ .")
+        $("#hint-opt").append(hintText);
     }
     else if (ghosthint.textContent == "umpire"){
-        hint.innerText = "This guys calls balls and strikes"
+        hintText.text("This guys calls balls and strikes")
+        $("#hint-opt").append(hintText);
     }
     else if (ghosthint.textContent == "piazza"){
-        hint.innerText = "Greatest NY Mets catcher of all time"
+        hintText.text("Greatest NY Mets catcher of all time")
+        $("#hint-opt").append(hintText);
     }
     else{
-        hint.innerText = "Press any key to play the game!"
+        hintText.text("Press any key to play the game!")
+        $("#hint-opt").append(hintText);
     }
 
+    
+    
+});
 
-
-}

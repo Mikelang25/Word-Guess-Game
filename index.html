@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
 
@@ -20,10 +21,9 @@
     </div>
     <div class = "row">
         <div class="col-lg-2"></div>
-        <div class="col-lg-4 main-left text-left">
+        <div class="col-lg-4 main-left text-left" id="game-left">
             <p id="txt-guess-hint"></p>
-            <p class = "lbl-hint">Hint:</p>
-            <p id="txt-hint">hint placeholder</p>
+            <div id="hint-opt"></div>
         </div>
         <div class="col-lg-4 main-right text-center">
             <p class="lbl-intro">PRESS ANY KEY TO GET STARTED!</p>
@@ -37,7 +37,7 @@
             <p class="lbl-word">Current Word</p>
             <p id="txt-word" class="word">_  _  _  _  _  _</p>
             <br>
-            <button type="button" class="btn btn-secondary btn-hint" onclick="getHint()">Hint</button>
+            <button type="button" id="click-hint" class="btn btn-secondary btn-hint">Hint</button>
             <br>
             <br>
             <p class="lbl-guess-tot">NUMBER OF GUESSES REMAINING</p>
@@ -52,8 +52,10 @@
         </div>
         <div class="col-lg-2"></div>
     </div>
+     
 
 <script src="assets/javascript/game.js"></script>
+
 
 </body>
 
