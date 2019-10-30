@@ -22,6 +22,12 @@ var losses = 0;
 
 document.onkeyup = function(event) {
     
+    //removes the hints if they exist 
+        $("#hint-label").remove();
+    $("#hint-content").remove();
+
+
+
     //if this is the first guess of the game then a computer guess is selected
     if(parseInt(guessesRemaining.innerText) === 13){
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -98,50 +104,58 @@ document.onkeyup = function(event) {
 
 $("#click-hint").on("click",function(){
 
-    var hint = $("<p>");
-    var hintText = $("<p>");
+    //checks to see if the hint label already exists on the page
+    if($("#hint-label").length){
+        //does nothing if the elements for the hint already exist 
+    }else{
+            var hint = $("<p>");
+            var hintText = $("<p>");
 
-    hint.text("Hint:");
-    $("#hint-opt").append(hint);
-    hint.attr("class","lbl-hint")
+            hint.text("Hint:");
+            hint.attr("id","hint-label")
 
-    if(ghosthint.textContent =="hitter"){
-        hintText.txt("That guy is hitting bombs in batting practice, he looks like a good ______ .")
-        $("#hint-opt").append(hintText);
-    }
-    else if (ghosthint.textContent == "helmet"){
-        hintText.text("I have to bat, have you seen my  _______ .")
-        $("#hint-opt").append(hintText);
-    }
-    else if (ghosthint.textContent == "lineup"){
-        hintText.text("I hope coach puts me in the ________ .")
-        $("#hint-opt").append(hintText);
-    }
-    else if (ghosthint.textContent == "stolen"){
-        hintText.text("The runner has  _______ second base.")
-        $("#hint-opt").append(hintText);
-    }
-    else if (ghosthint.textContent == "strike"){
-        hintText.text("Get this pitched out of here, he can't throw a  _____ .")
-        $("#hint-opt").append(hintText);
-    }
-    else if (ghosthint.textContent == "triple"){
-        hintText.text("If the batter hit a ball and ended up on third, he hit a _____ .")
-        $("#hint-opt").append(hintText);
-    }
-    else if (ghosthint.textContent == "umpire"){
-        hintText.text("This guys calls balls and strikes")
-        $("#hint-opt").append(hintText);
-    }
-    else if (ghosthint.textContent == "piazza"){
-        hintText.text("Greatest NY Mets catcher of all time")
-        $("#hint-opt").append(hintText);
-    }
-    else{
-        hintText.text("Press any key to play the game!")
-        $("#hint-opt").append(hintText);
-    }
+            $("#hint-opt").append(hint);
 
+            hint.attr("class","lbl-hint")
+            hintText.attr("id","hint-content")
+
+            if(ghosthint.textContent =="hitter"){
+                hintText.txt("That guy is hitting bombs in batting practice, he looks like a good ______ .")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "helmet"){
+                hintText.text("I have to bat, have you seen my  _______ .")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "lineup"){
+                hintText.text("I hope coach puts me in the ________ .")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "stolen"){
+                hintText.text("The runner has  _______ second base.")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "strike"){
+                hintText.text("Get this pitched out of here, he can't throw a  _____ .")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "triple"){
+                hintText.text("If the batter hit a ball and ended up on third, he hit a _____ .")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "umpire"){
+                hintText.text("This guys calls balls and strikes")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "piazza"){
+                hintText.text("Greatest NY Mets catcher of all time")
+                $("#hint-opt").append(hintText);
+            }
+            else{
+                hintText.text("Press any key to play the game!")
+                $("#hint-opt").append(hintText);
+            }
+    }
     
     
 });
