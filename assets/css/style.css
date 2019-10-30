@@ -21,6 +21,7 @@ body{
 }
 
 .title-head{
+    color:blue;
     font-family:"Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     background-image: url('../images/dust_scratches.png');
     border:2pt solid grey;
@@ -48,6 +49,11 @@ body{
         text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
 }
 
+.video-win{
+    height:400px;
+    width:100%; 
+}
+
 #txt-word{
     font-size: 25pt;
 }
@@ -55,4 +61,8 @@ body{
 #txt-guess-hint{
     visibility: hidden;
     height:10px;
+}
+
+#vid-opt{
+    text-align: center;
 }

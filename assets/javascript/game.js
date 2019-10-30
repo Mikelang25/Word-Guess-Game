@@ -23,9 +23,10 @@ var losses = 0;
 document.onkeyup = function(event) {
     
     //removes the hints if they exist 
-        $("#hint-label").remove();
+    $("#hint-label").remove();
     $("#hint-content").remove();
-
+    //removes the video if the user plays another game
+    $("#vid-opt").html("");
 
 
     //if this is the first guess of the game then a computer guess is selected
@@ -71,6 +72,7 @@ document.onkeyup = function(event) {
 
                 //checks to see if the user guesses equal the value of the computer guess 
                 if(Buildword == computerGuess){
+                    $("#vid-opt").html("<iframe width='560' height='315' src='https://www.youtube.com/embed/c5hxDq4NiRw' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>")
                     gameStatus.innerText = "You win! The correct word was: " + computerGuess
                     wins = wins + 1;
                     guessesRemaining.innerText = 13;
