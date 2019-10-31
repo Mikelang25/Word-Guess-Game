@@ -12,14 +12,20 @@ var currentword = document.getElementById("txt-word");
 var gameStatus = document.getElementById("txt-status"); 
 var hint = document.getElementById("txt-hint");
 var ghosthint = document.getElementById("txt-guess-hint");
+var pickValue = document.getElementById("txt-word")
 var Buildword = "";
+var pickedWord = "";
 var wins = 0;
 var losses = 0;
 
 computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-console.log(computerGuess);
 ghosthint.innerText = computerGuess
 gameStatus.innerText = "";
+
+    for(var i = 0; i < computerGuess.length; i++){
+        pickedWord = pickedWord + " _ "
+    }
+    pickValue.innerText = pickedWord;
 
 //document.getElementById("btn-hint").addEventListener("click",getHint);
 
@@ -77,7 +83,12 @@ document.onkeyup = function(event) {
                     currentword.innerText = "_  _  _  _  _  _";
                     userGuessAll = [];
                     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-                    ghosthint.innerText = computerGuess
+                    ghosthint.innerText = computerGuess;
+                    pickedWord = ""
+                    for(var i = 0; i < computerGuess.length; i++){
+                        pickedWord = pickedWord + " _ ";
+                    }
+                    pickValue.innerText = pickedWord;
                     
                 }
                 //updates the letters guessed on the page to the userGuessAll array
@@ -93,6 +104,11 @@ document.onkeyup = function(event) {
                     userGuessAll = [];
                     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
                     ghosthint.innerText = computerGuess
+                    pickedWord = ""
+                    for(var i = 0; i < computerGuess.length; i++){
+                        pickedWord = pickedWord + " _ "
+                    }
+                    pickValue.innerText = pickedWord;
                 }
                 gameStatus.innerText = "You lose! The correct word was: " + computerGuess
                 losses = losses + 1 
@@ -101,7 +117,12 @@ document.onkeyup = function(event) {
                 guessesRemaining.innerText = 13;
                 currentword.innerText = "_  _  _  _  _  _";
                 computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-                ghosthint.innerText = computerGuess
+                ghosthint.innerText = computerGuess;
+                pickedWord = ""
+                for(var i = 0; i < computerGuess.length; i++){
+                    pickedWord = pickedWord + " _ "
+                }
+                pickValue.innerText = pickedWord;
             }
         }   
     frmloss.innerText = losses
