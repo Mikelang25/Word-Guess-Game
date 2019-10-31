@@ -16,24 +16,23 @@ var Buildword = "";
 var wins = 0;
 var losses = 0;
 
-
+computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+console.log(computerGuess);
+ghosthint.innerText = computerGuess
+gameStatus.innerText = "";
 
 //document.getElementById("btn-hint").addEventListener("click",getHint);
 
 document.onkeyup = function(event) {
-    
+
     //removes the hints if they exist 
     $("#hint-label").remove();
     $("#hint-content").remove();
-    //removes the video if the user plays another game
-    $("#vid-opt").html("");
+
 
 
     //if this is the first guess of the game then a computer guess is selected
     if(parseInt(guessesRemaining.innerText) === 13){
-        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        ghosthint.innerText = computerGuess
-        console.log(ghosthint)
         gameStatus.innerText = "";
     }
 
@@ -72,12 +71,14 @@ document.onkeyup = function(event) {
 
                 //checks to see if the user guesses equal the value of the computer guess 
                 if(Buildword == computerGuess){
-                    $("#vid-opt").html("<iframe width='560' height='315' src='https://www.youtube.com/embed/c5hxDq4NiRw' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>")
                     gameStatus.innerText = "You win! The correct word was: " + computerGuess
                     wins = wins + 1;
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
                     userGuessAll = [];
+                    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                    ghosthint.innerText = computerGuess
+                    
                 }
                 //updates the letters guessed on the page to the userGuessAll array
                 guessesAll.innerText = userGuessAll
@@ -90,6 +91,8 @@ document.onkeyup = function(event) {
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
                     userGuessAll = [];
+                    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                    ghosthint.innerText = computerGuess
                 }
                 gameStatus.innerText = "You lose! The correct word was: " + computerGuess
                 losses = losses + 1 
@@ -97,6 +100,8 @@ document.onkeyup = function(event) {
                 guessesAll.innerText = "";
                 guessesRemaining.innerText = 13;
                 currentword.innerText = "_  _  _  _  _  _";
+                computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                ghosthint.innerText = computerGuess
             }
         }   
     frmloss.innerText = losses
@@ -121,8 +126,8 @@ $("#click-hint").on("click",function(){
             hint.attr("class","lbl-hint")
             hintText.attr("id","hint-content")
 
-            if(ghosthint.textContent =="hitter"){
-                hintText.txt("That guy is hitting bombs in batting practice, he looks like a good ______ .")
+            if(ghosthint.textContent == "hitter"){
+                hintText.text("That guy is hitting bombs in batting practice, he looks like a good ______ .")
                 $("#hint-opt").append(hintText);
             }
             else if (ghosthint.textContent == "helmet"){
