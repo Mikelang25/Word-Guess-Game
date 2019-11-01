@@ -1,6 +1,6 @@
 
 //creates the array of word choices for the computer
-var computerChoices = ["hitter","helmet","lineup","stolen","strike","triple","umpire","piazza"]
+var computerChoices = ["hitter","helmet","lineup","stolen","strike","triple","umpire","piazza","doubleday"]
 //creates an array container for the user's guesses 
 var userGuessAll = []
 
@@ -34,6 +34,7 @@ document.onkeyup = function(event) {
     //removes the hints if they exist 
     $("#hint-label").remove();
     $("#hint-content").remove();
+    $("#vid-opt").empty();
 
 
 
@@ -79,6 +80,7 @@ document.onkeyup = function(event) {
                 if(Buildword == computerGuess){
                     gameStatus.innerText = "You win! The correct word was: " + computerGuess
                     wins = wins + 1;
+                    $("#vid-opt").html("<iframe src='https://giphy.com/embed/sQ0QuBRW5uR5m' width='480' height='480' frameBorder='0' class='giphy-embed' allowFullScreen></iframe><p><a href='https://giphy.com/gifs/1ko-sQ0QuBRW5uR5m'>via GIPHY</a></p>")
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
                     userGuessAll = [];
@@ -99,6 +101,7 @@ document.onkeyup = function(event) {
                 if(Buildword == computerGuess){
                     gameStatus.innerText = "You win! The correct word was: " + computerGuess
                     wins = wins + 1;
+                    $("#vid-opt").html("<iframe src='https://giphy.com/embed/iVx7L8O7rFjI4' width='480' height='360' frameBorder='0' class='giphy-embed' allowFullScreen></iframe><p><a href='https://giphy.com/gifs/mlb-baseball-iVx7L8O7rFjI4'>via GIPHY</a></p>")
                     guessesRemaining.innerText = 13;
                     currentword.innerText = "_  _  _  _  _  _";
                     userGuessAll = [];
@@ -111,6 +114,7 @@ document.onkeyup = function(event) {
                     pickValue.innerText = pickedWord;
                 }
                 gameStatus.innerText = "You lose! The correct word was: " + computerGuess
+                $("#vid-opt").html("<iframe src='https://giphy.com/embed/3o6Zt1TrXW8uW2lE2I' width='480' height='476' frameBorder='0' class='giphy-embed' allowFullScreen></iframe><p><a href='https://giphy.com/gifs/3o6Zt1TrXW8uW2lE2I'>via GIPHY</a></p>")
                 losses = losses + 1 
                 userGuessAll = [];
                 guessesAll.innerText = "";
@@ -152,7 +156,7 @@ $("#click-hint").on("click",function(){
                 $("#hint-opt").append(hintText);
             }
             else if (ghosthint.textContent == "helmet"){
-                hintText.text("I have to bat, have you seen my  _______ .")
+                hintText.text("I have to bat, have you seen my  _________ .")
                 $("#hint-opt").append(hintText);
             }
             else if (ghosthint.textContent == "lineup"){
@@ -177,6 +181,10 @@ $("#click-hint").on("click",function(){
             }
             else if (ghosthint.textContent == "piazza"){
                 hintText.text("Greatest NY Mets catcher of all time")
+                $("#hint-opt").append(hintText);
+            }
+            else if (ghosthint.textContent == "doubleday"){
+                hintText.text("The man who created baseball")
                 $("#hint-opt").append(hintText);
             }
             else{
