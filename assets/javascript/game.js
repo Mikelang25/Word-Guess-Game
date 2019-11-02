@@ -27,8 +27,6 @@ gameStatus.innerText = "";
     }
     pickValue.innerText = pickedWord;
 
-//document.getElementById("btn-hint").addEventListener("click",getHint);
-
 document.onkeyup = function(event) {
 
     //removes the hints if they exist 
@@ -135,7 +133,7 @@ document.onkeyup = function(event) {
 }
 
 $("#click-hint").on("click",function(){
-
+    
     //checks to see if the hint label already exists on the page
     if($("#hint-label").length){
         //does nothing if the elements for the hint already exist 
